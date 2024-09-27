@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1727203646615,
+      "tag": "0000_white_the_enforcers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1727204724337,
+      "tag": "0001_little_cammi",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1727204770232,
+      "tag": "0002_familiar_the_stranger",
+      "breakpoints": true
+    }
+  ]
+}

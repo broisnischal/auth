@@ -69,3 +69,18 @@ Token blacklisting is the process of preventing the use of a token after it has 
 ### Token versioning
 
 Token versioning is the process of incrementing the version of a token when it is refreshed or reissued. The token versioning module should be responsible for incrementing the version of a token and storing the previous versions for auditing purposes.
+
+## Password Authentication
+
+## Passwordless Authentication
+
+## Email Verification
+
+## Password Reset
+
+## Sessions
+
+- Session ID
+- Session Hijacking, sniffing
+- Session Invalidation
+- Session Fixation Attacks

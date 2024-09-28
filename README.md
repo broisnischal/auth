@@ -1,9 +1,5 @@
 # Authentication
 
-This is the authentication module for the project.
-
-Project includes :
-
 Refresh access token rotation, concept, session management, JWT token generation, token validation, token blacklisting, token versioining, etc.
 
 This module will be used by other modules to authenticate users.
@@ -84,3 +80,12 @@ Token versioning is the process of incrementing the version of a token when it i
 - Session Hijacking, sniffing
 - Session Invalidation
 - Session Fixation Attacks
+
+## Saml
+
+## Bit wise, RBAC
+
+CREATE - Represented by the first bit 0001
+READ - Represented by the second bit 0010
+UPDATE - Represented by the third bit 0100
+DELETE - Represented by the fourth bit 1000

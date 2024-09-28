@@ -11,6 +11,7 @@ export const user = sqliteTable("user", {
   createdAt: text("created_at")
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
+  // roleId
 });
 
 export const sessions = sqliteTable("sessions", {
@@ -64,6 +65,16 @@ export const userAuth = sqliteTable("user_auth", {
   accessToken: text("access_token"), // OAuth access token
   refreshToken: text("refresh_token"), // OAuth refresh token
   expiresIn: integer("expires_in"), // Token expiry time
+  createdAt: text("created_at")
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+});
+
+export const userRoles = sqliteTable("user_roles", {
+  id: text("id").primaryKey().$defaultFn(createId),
+  name: text("name").notNull().unique(),
+  permissions: integer("permissions").notNull(),
+  // users
   createdAt: text("created_at")
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),

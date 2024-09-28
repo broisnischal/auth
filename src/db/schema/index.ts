@@ -11,6 +11,7 @@ export const user = sqliteTable("user", {
   createdAt: text("created_at")
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
+  // image: text("image"),
   // roleId
 });
 

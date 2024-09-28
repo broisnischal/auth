@@ -89,3 +89,7 @@ CREATE - Represented by the first bit 0001
 READ - Represented by the second bit 0010
 UPDATE - Represented by the third bit 0100
 DELETE - Represented by the fourth bit 1000
+
+Remote Authentication, like discord, whatsapp web auth does.
+
+sso, jwt

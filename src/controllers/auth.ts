@@ -1,17 +1,18 @@
 import { createInsertSchema } from "drizzle-typebox";
-import Elysia, { t } from "elysia";
+import Elysia, { Static, t } from "elysia";
+import { db } from "../db";
 import { user } from "../db/schema";
-import { db, sqlite } from "../db";
-import { drizzle } from "drizzle-orm/bun-sqlite";
-import { test } from "bun:test";
 
-const insertUserSchema = createInsertSchema(user, {
-  image: t.Required(
-    t.File({
-      maxSize: "2m",
-    })
-  ),
+const insertUserSchema = createInsertSchema(user, {});
+
+export const UploadAvatarDto = t.Object({
+  file: t.File({
+    type: "image/*",
+    maxSize: "5m",
+  }),
 });
+
+export type UploadAvatarDto = Static<typeof UploadAvatarDto>;
 
 const plugin = new Elysia({ name: "plugin" }).macro(({ onBeforeHandle }) => ({
   hi(word: string) {
@@ -44,24 +45,24 @@ export const auth = new Elysia({
   //   };
   // })
   .decorate("db", db)
-  .onRequest(async (ctx) => {
-    const formData = await ctx.request.formData();
-    return formData.get("file");
-  })
+  // .onRequest(async (ctx) => {
+  //   const formData = await ctx.request.formData();
+  //   return formData.get("file");
+  // })
   .put(
     "/sign-up",
     ({ body, db }) => {
-      const { image, ...user } = body;
+      const { file } = body;
+      console.log(file);
 
       //   return db.insert(user, { schema: insertUserSchema }).then((id) => ({
       //     id,
       //     image,
       //   }));
-
-      return new Response("Not implemented yet");
     },
     {
-      body: t.Omit(insertUserSchema, ["id"]),
+      // body: t.Omit(insertUserSchema, ["id"]),
+      body: UploadAvatarDto,
       type: "multipart/form-data",
       hi: "fuck",
       // beforeHandle({ set, cookie: { session }, error }) {
